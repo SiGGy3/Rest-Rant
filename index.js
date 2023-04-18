@@ -4,7 +4,8 @@ const app = express()
 
 app.use('/places', require('./Rest-Rant/controllers/places'))
 
-app.get('/', (req, res) => {
+app.get('/', (req, res) => 
+{
     res.send('Hello world!')
 })
 
