@@ -9,12 +9,12 @@ app.use('/places', require('./Rest-Rant/controllers/places'))
 
 app.get('/', (req, res) => 
 {
-    res.render('Hello world!')
+    res.render('home')
 })
 
 app.get('*', (req, res) =>
 {
-    res.status(404).send('<h1>404, page not found</h1>')
+    res.render('error404')
 })
 
 app.listen(process.env.PORT)

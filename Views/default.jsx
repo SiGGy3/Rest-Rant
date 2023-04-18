@@ -1,4 +1,5 @@
 const React = require('react')
+const Def = require('./default')
 
 function Def (html) {
     return (
@@ -13,4 +14,4 @@ function Def (html) {
     )
   }  
 
-module.exports = def
+module.exports = Def

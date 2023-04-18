@@ -1,3 +1,19 @@
+# Project REST-Rant
+
+TBD - SUMMARY
+
+## Tech Usage
+
+**CSS Framework:** Bootstrap
+
+**Stack:** MongoDB, Express, NodeJS
+
+**Server-Side Rendering:** JSX
+
+**Node Modules**: method-override, dotenv, express-react-views
+
+## Routes
+
 | Method | Path | Purpose |
 | ------ | ------------------------------------- | ----------------------------- |
 | GET | `/` | The home page |
@@ -10,4 +26,27 @@
 | DELETE | `/places/:id` | Delete a place |
 | POST | `/places/:id/rant` | Add rant to a place |
 | DELETE | `/places/:id/rant/:rantId` | Delete a rant |
-| GET | `*` | 404 Page| 
+
+## Database
+
+**places** 
+
+| Field | Type |
+| ---------- | ------------ |
+| _id | Object ID |
+| name | String |
+| city | String |
+| state | String |
+| cuisines | String |
+| pic | String |
+
+**rants**
+
+| Field | Type |
+| ---------- | ------------ |
+| _id | Object ID |
+| place_id | ref(places) Object_Id |
+| rant | Boolean |
+| rating | Number |
+| comment | String |
+| reviewer | String |
