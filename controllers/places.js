@@ -5,8 +5,6 @@ router.get('/', (req, res) => {
     res.render('places/index', { places })
 })
 
-// More code ...
-
 router.get('/', (req, res) => {
     let places = [{
         name: 'H-Thai-ML',
@@ -42,7 +40,7 @@ router.post('/', (req, res) => {
     req.body.state = 'USA'
   }
   places.push(req.body)
-  res.direct('/places')
+  res.redirect('/places')
 })
 
 
