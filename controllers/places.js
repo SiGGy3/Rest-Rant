@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const db = require ('../models')
+const places = require('../models/places')
 
 router.get('/', (req, res) => {
     db.Place.find()
@@ -85,18 +86,28 @@ router.get('/:id/edit', (req, res) => {
   }
 })
 
+//Delete Comment
+router.delete('/:id/comment/:commentId', (req, res) => {
+  db.Comment.findByIdAndDelete(req.params.commentId)
+      .then(() => {
+          console.log('Success')
+          res.redirect(`/places/${req.params.id}`)
+      })
+      .catch(err => {
+          console.log('err', err)
+          res.render('error404')
+      })
+})
+
 router.delete('/:id', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-    res.render('error404')
-  }
-  else if (!places[id]) {
-    res.render('error404')
-  }
-  else {
-    places.splice(id, 1)
-    res.redirect('/places/')
-  }
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
 
 router.put('/:id', (req, res) => {
